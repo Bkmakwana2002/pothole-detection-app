@@ -19,7 +19,10 @@ def detectPotholeonVideo(filename):
     model1.setInputParams(size=(640, 480), scale=1 / 255, swapRB=True)
 
     # defining the video source (0 for camera or file name for video)
-    cap = cv.VideoCapture(filename)
+    if filename!= 0 :
+        cap = cv.VideoCapture(filename)
+    else:
+        cap = cv.VideoCapture(2)
     width = cap.get(3)
     height = cap.get(4)
     result = cv.VideoWriter('PotholeVideoResult.mp4',
